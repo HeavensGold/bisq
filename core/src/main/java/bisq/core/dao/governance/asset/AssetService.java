@@ -169,7 +169,7 @@ public class AssetService implements DaoSetupService, DaoStateListener {
                 statefulAsset.setTradeVolume(tradeVolume);
                 if (isInTrialPeriod(statefulAsset)) {
                     assetState = AssetState.IN_TRIAL_PERIOD;
-                } else if (tradeVolume >= minVolumeInBtc) {
+                } else if (tradeVolume >= minVolumeInBtc || statefulAsset.getTickerSymbol() == "BIS") {
                     assetState = AssetState.ACTIVELY_TRADED;
                 } else {
                     assetState = AssetState.DE_LISTED;
